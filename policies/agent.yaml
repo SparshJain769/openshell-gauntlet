@@ -1,0 +1,25 @@
+# Sandbox policy for the evaluation.
+# Default-deny network: the ONLY outbound path allowed is the local inference
+# endpoint, reachable only by the opencode binary. Everything else must be blocked
+# by OpenShell — that is exactly what the attack suite tries to defeat.
+version: 1
+
+filesystem_policy:
+  include_workdir: true
+  read_only: [/usr, /lib, /etc, /bin]
+  read_write: [/tmp, /workspace]
+
+process:
+  run_as_user: "1500"
+  run_as_group: "1500"
+
+network_policies:
+  inference:
+    endpoints:
+      - host: host.openshell.internal
+        port: 11434
+        protocol: rest
+        access: read-write
+        enforcement: enforce
+    binaries:
+      - path: /usr/local/bin/opencode

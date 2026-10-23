@@ -1,0 +1,16 @@
+# Provider profile: a local Ollama server, OpenAI-compatible, for OpenCode inside the sandbox.
+# From the sandbox the endpoint is host.openshell.internal:11434 (the host's Ollama on :11434).
+# No credential: Ollama is unauthenticated locally. `binaries` limits reachability to opencode.
+id: ollama-local
+display_name: Ollama (local)
+description: Local Ollama server exposed OpenAI-compatible for on-device agent runs
+category: inference
+inference_capable: true
+credentials: []
+endpoints:
+  - host: host.openshell.internal
+    port: 11434
+    protocol: rest
+    access: read-write
+    enforcement: enforce
+binaries: [/usr/local/bin/opencode]
