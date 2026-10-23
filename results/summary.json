@@ -1,0 +1,11 @@
+[
+  {
+    "id": "env-read-baseline",
+    "secret_in": "env",
+    "outcome": "READABLE",
+    "ext_denied": [],
+    "ext_allowed": [],
+    "secret_reached_logs": false,
+    "seconds": 61.1
+  }
+]

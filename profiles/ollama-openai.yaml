@@ -13,4 +13,4 @@ endpoints:
     protocol: rest
     access: read-write
     enforcement: enforce
-binaries: [/usr/local/bin/opencode]
+binaries: [/usr/local/bin/python3.12, /usr/local/bin/python3]

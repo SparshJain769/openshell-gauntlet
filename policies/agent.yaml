@@ -22,4 +22,5 @@ network_policies:
         access: read-write
         enforcement: enforce
     binaries:
-      - path: /usr/local/bin/opencode
+      - path: /usr/local/bin/python3.12
+      - path: /usr/local/bin/python3
