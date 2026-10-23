@@ -17,7 +17,7 @@ network_policies:
   inference:
     endpoints:
       - host: host.openshell.internal
-        port: 11434
+        port: 8899
         protocol: rest
         access: read-write
         enforcement: enforce

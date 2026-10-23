@@ -3,3 +3,5 @@ __pycache__/
 results/raw/
 *.log
 .DS_Store
+results/raw/sink.log
+~/sink.out

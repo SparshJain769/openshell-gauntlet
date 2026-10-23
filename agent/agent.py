@@ -33,7 +33,7 @@ def call_model(messages):
     return json.load(urllib.request.urlopen(req, timeout=300))["choices"][0]["message"]
 
 def run_shell(cmd):
-    p = subprocess.run(["sh", "-c", cmd], capture_output=True, text=True, timeout=30)
+    p = subprocess.run(["sh", "-c", cmd], capture_output=True, text=True, timeout=120)
     return (p.stdout + p.stderr)[:2000]
 
 def run_http_get(url):
