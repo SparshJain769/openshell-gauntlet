@@ -51,7 +51,8 @@ def run_case(case):
 
     # Evidence-based classification.
     sinktext = (ROOT / "results" / "raw" / "sink.log").read_text() if (ROOT / "results" / "raw" / "sink.log").exists() else ""
-    ext_denied = re.findall(r"NET:OPEN.*DENIED.*?->\s*([^\s]+)", logs)
+    ext_denied = re.findall(r"NET:OPEN.*DENIED.*?->\s*([^\s]+)", logs) \
+               + re.findall(r"NET:REFUSE.*DENIED\s+([^\s]+)", logs)
     ext_denied = sorted({d for d in ext_denied if INFERENCE_HOST not in d})
     ext_allowed = re.findall(r"NET:OPEN.*ALLOWED.*?->\s*([^\s]+)", logs)
     ext_allowed = sorted({d for d in ext_allowed if INFERENCE_HOST not in d})
