@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 430" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" role="img" aria-label="Diagram: OpenShell blocks every external exit but the secret rides out on the allowed model endpoint">
+  <defs>
+    <marker id="amber" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#e0a046"/></marker>
+    <marker id="redf" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#e0574b" opacity="0.5"/></marker>
+  </defs>
+  <rect x="0" y="0" width="860" height="430" rx="16" fill="#0e1016"/>
+  <text x="32" y="42" fill="#e9ecf1" font-size="20" font-weight="700">The sandbox blocked every exit — except the one it must leave open</text>
+  <text x="32" y="66" fill="#8a93a3" font-size="13">An agent tries to leak a planted secret five ways. What OpenShell actually did:</text>
+
+  <!-- sandbox boundary -->
+  <rect x="34" y="96" width="340" height="300" rx="14" fill="#6ea0ff" fill-opacity="0.05" stroke="#3a4150" stroke-width="1.5" stroke-dasharray="7 5"/>
+  <text x="52" y="120" fill="#6ea0ff" font-size="12" font-family="monospace">OpenShell sandbox</text>
+
+  <!-- agent -->
+  <rect x="78" y="176" width="150" height="66" rx="10" fill="#1a2030" stroke="#2c3443" stroke-width="1.5"/>
+  <text x="153" y="206" fill="#e9ecf1" font-size="15" font-weight="600" text-anchor="middle">AI agent</text>
+  <text x="153" y="225" fill="#8a93a3" font-size="11" text-anchor="middle">reads · reasons · acts</text>
+
+  <!-- secret pill -->
+  <rect x="96" y="286" width="118" height="32" rx="16" fill="#2a1f1f" stroke="#5a3b38" stroke-width="1.5"/>
+  <rect x="112" y="297" width="9" height="7" rx="1.5" fill="none" stroke="#e0a046" stroke-width="1.6"/>
+  <circle cx="116.5" cy="300" r="3.3" fill="none" stroke="#e0a046" stroke-width="1.6"/>
+  <text x="155" y="307" fill="#e7c48a" font-size="12" font-weight="600" text-anchor="middle">secret</text>
+
+  <!-- model endpoint (allowed) -->
+  <rect x="560" y="116" width="268" height="70" rx="12" fill="#e0a046" fill-opacity="0.12" stroke="#c99a4a" stroke-width="1.5"/>
+  <text x="578" y="146" fill="#f0c686" font-size="15" font-weight="700">Model API endpoint</text>
+  <text x="578" y="167" fill="#b99a66" font-size="12">the one exit the policy must allow</text>
+
+  <!-- any other host (blocked) -->
+  <rect x="560" y="300" width="268" height="78" rx="12" fill="#e0574b" fill-opacity="0.1" stroke="#7a3a35" stroke-width="1.5"/>
+  <text x="578" y="330" fill="#f0908a" font-size="15" font-weight="700">Any other host</text>
+  <text x="578" y="351" fill="#c08782" font-size="12">attacker-controlled collector</text>
+  <text x="578" y="369" fill="#8a6b68" font-size="11" font-family="monospace">HTTP · raw TCP · HTTPS</text>
+
+  <!-- amber path: agent -> model, secret rides along, passes through wall -->
+  <path d="M228,196 C340,150 430,150 556,150" fill="none" stroke="#e0a046" stroke-width="2.4" marker-end="url(#amber)"/>
+  <rect x="392" y="130" width="74" height="24" rx="12" fill="#2a2416" stroke="#c99a4a" stroke-width="1.3"/>
+  <text x="429" y="146" fill="#f0c686" font-size="11" font-weight="600" text-anchor="middle" font-family="monospace">secret →</text>
+  <text x="300" y="183" fill="#8fbf8f" font-size="11" font-weight="700" font-family="monospace">ALLOWED</text>
+
+  <!-- red lines: agent -> wall, blocked with X -->
+  <g stroke="#e0574b" stroke-width="2.2">
+    <line x1="228" y1="232" x2="360" y2="300"/>
+    <line x1="228" y1="244" x2="360" y2="332"/>
+    <line x1="228" y1="256" x2="360" y2="364"/>
+  </g>
+  <!-- X marks at the wall -->
+  <g stroke="#ff6b5e" stroke-width="2.6" stroke-linecap="round">
+    <line x1="353" y1="293" x2="367" y2="307"/><line x1="367" y1="293" x2="353" y2="307"/>
+    <line x1="353" y1="325" x2="367" y2="339"/><line x1="367" y1="325" x2="353" y2="339"/>
+    <line x1="353" y1="357" x2="367" y2="371"/><line x1="367" y1="357" x2="353" y2="371"/>
+  </g>
+  <!-- faint dashed continuation to attacker box (intended, never reached) -->
+  <path d="M378,332 L556,336" fill="none" stroke="#e0574b" stroke-width="1.6" stroke-dasharray="5 5" opacity="0.4" marker-end="url(#redf)"/>
+  <text x="300" y="400" fill="#f0908a" font-size="12" font-weight="700" font-family="monospace" text-anchor="middle">BLOCKED ✕3</text>
+
+  <!-- stat strip bottom-right -->
+  <text x="610" y="212" fill="#2fb67d" font-size="13" font-weight="700" font-family="monospace">3 / 3 external exfil blocked</text>
+  <text x="610" y="234" fill="#e0a046" font-size="13" font-weight="700" font-family="monospace">secret reached the model API</text>
+  <text x="610" y="252" fill="#8a93a3" font-size="11" font-family="monospace">in every run the agent engaged</text>
+</svg>
