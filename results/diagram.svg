@@ -4,7 +4,7 @@
     <marker id="redf" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#e0574b" opacity="0.5"/></marker>
   </defs>
   <rect x="0" y="0" width="860" height="430" rx="16" fill="#0e1016"/>
-  <text x="32" y="42" fill="#e9ecf1" font-size="20" font-weight="700">The sandbox blocked every exit — except the one it must leave open</text>
+  <text x="32" y="42" fill="#e9ecf1" font-size="20" font-weight="700">Every exit blocked, except the one it has to leave open</text>
   <text x="32" y="66" fill="#8a93a3" font-size="13">An agent tries to leak a planted secret five ways. What OpenShell actually did:</text>
 
   <!-- sandbox boundary -->
